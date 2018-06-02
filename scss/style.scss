@@ -1,0 +1,239 @@
+@import '_normalize';
+@import '_vars';
+@import '_mixins';
+
+body {
+	
+	height: 100%;
+	font: $text-font;
+	color: $text-color;
+}
+
+.section {
+	padding: 100px 0;
+	width: 1140px;
+	margin: 0 auto;
+	&__heading {
+		text-align: center;
+		text-transform: uppercase;
+		padding-bottom: 40px;
+		position: relative;
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 0);
+			display: inline-block;
+		}
+		&:before {
+			width: 450px;
+			@include b-b();
+		}
+		&:after {
+			width: 30px;
+			height: 30px;
+			background-color: #fff;
+			@include background-image('../img/bonfire.jpg');
+			transform: translate(-50%, 45%);
+		}
+	}
+	&__title {
+		font: $heading-font;
+		color: $primary-color;
+		font-size: 60px;
+		line-height: 1.1;
+		margin:0;
+	}
+	&__subtitle {
+		font: $text-font;
+		color: $secondary-color;
+		font-size: 18px;
+	}
+}
+
+.slider {
+		position: relative;
+		margin: 50px 0;
+		padding-bottom: 50px;
+	&__wrap {
+	}
+	&__slide {
+		height: 560px;
+		
+	}
+	&__arrow {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		display: inline-block;
+		width: 70px;
+		opacity: .4;
+		transition: opacity .25s ease-in;
+		@include background-image('../img/left.png');
+		&--prev {
+			left: 0;
+		}
+		&--next {
+			right: 0;
+			transform: rotate(180deg);
+		}
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+	}
+	&__dots {
+		position: absolute;
+		bottom: 0;
+		left: 0; right: 0;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+	&__dot {
+		display: inline-block;
+		a {
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			@include border(#fff, $border-width, solid);
+			background: $primary-color;
+			border-radius: 50%;
+			transition: all .4s ease-in;
+			&:hover, 
+			&:focus,
+			&:active {
+				border-color: $primary-color;
+				background: #fff;
+			} 
+		}
+		&.active {
+			a {
+				border-color: $primary-color;
+				background: #fff;
+			}
+		}
+	}
+}
+
+.profile {
+	display: flex;
+	&__left,
+	&__right {
+		width: 50%;
+		height: 100%;
+		padding: 80px;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	&__left {
+		@include b-r();		 
+	}
+	&__right {
+		text-align: center;
+	}
+	&__img-wrap {
+		position: relative;
+		padding: 20px;
+		font-size: 0;
+		@include b();
+		&:before,
+		&:after {
+			content: '';
+			background: #fff;
+			display: inline-block;
+			width: 50%;
+			height: 102%;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 0;
+		}
+		&:after {
+			width: 102%;
+			height: 50%;
+		}		 		
+	}
+	&__img {
+		width: 100%;
+		position: relative;
+		z-index: 1;
+		@include b();		 
+	}	
+	&__title {
+		font: $heading-font;
+		color: $heading-color;
+		position: relative;
+		padding: 0 0 35px;
+		&:after {
+			content: '';
+			display: inline-block;
+			width: 110px;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 0);
+			@include b-b();
+		}
+	}
+	&__subtitle {
+		font: $text-font;
+		font-size: 24px;
+		color: $heading-color;
+		padding: 28px 0;
+	}
+	&__text {
+		padding-bottom: 50px; 
+		position: relative;
+		&:after {
+			content: '';
+			display: inline-block;
+			width: 52px;
+			height: 4px;
+			background: linear-gradient(to right, $primary-color 20%, #fff 20%, #fff 28%, $primary-color 28%, $primary-color 72%,  #fff 72%, #fff 80%, $primary-color 80%); 
+			position: absolute;
+			bottom: 15%;
+			left: 50%;
+			transform: translate(-50%, -15%);
+		}	
+	}
+	&__link {
+		text-transform: uppercase;
+		font: $button-font;
+		color: $button-color;
+		text-decoration: none;
+		@include b();
+		display: inline-block;
+		padding: 5px 20px;
+		transition: all .25s ease-in;
+		&:hover,
+		&:focus {
+			background: $primary-color;
+		}
+	}
+}
+
+.social {
+	&__links {
+		display: inline-block;
+		padding: 0;
+		margin-top: 0;
+		margin-bottom: 30px;
+	}
+	&__link {
+		display: inline-block;
+		opacity: 0.7;
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+	}	
+}
+
+
